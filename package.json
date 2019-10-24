@@ -1,37 +1,39 @@
 {
-  "name": "gatsby-starter-default",
-  "description": "Gatsby default starter",
+  "name": "web-elf",
   "version": "1.0.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "dependencies": {
-    "gatsby": "^2.0.19",
-    "gatsby-image": "^2.0.15",
-    "gatsby-plugin-manifest": "^2.0.5",
-    "gatsby-plugin-offline": "^2.0.11",
-    "gatsby-plugin-react-helmet": "^3.0.0",
-    "gatsby-plugin-sharp": "^2.0.7",
-    "gatsby-source-filesystem": "^2.0.4",
-    "gatsby-transformer-sharp": "^2.1.4",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-helmet": "^5.2.0"
-  },
-  "keywords": [
-    "gatsby"
-  ],
+  "description": "小精灵 web端",
+  "main": "index.js",
+  "repository": "https://gitee.com/zvi/web-elf.git",
+  "author": "jianglikui <jianglikui@mocaapp.cn>",
   "license": "MIT",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
-    "start": "npm run develop",
-    "format": "prettier --write \"src/**/*.js\"",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "webpack-dev-server --config config/webpack_dev.js src/index.jsx",
+    "build": "webpack --config config/webpack_dev.js src/index.jsx"
   },
   "devDependencies": {
-    "prettier": "^1.14.2"
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "style-loader": "^1.0.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+  "dependencies": {
+    "mobx": "^5.14.0",
+    "mobx-react": "^6.1.4",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-router-dom": "^5.1.2",
+    "styled-components": "^4.4.0",
+    "styled-icons": "^8.6.0"
   }
 }

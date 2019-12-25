@@ -7,8 +7,7 @@
   "author": "jianglikui <jianglikui@mocaapp.cn>",
   "license": "MIT",
   "scripts": {
-    "start": "webpack-dev-server --config config/webpack_dev.js src/index.jsx",
-    "build": "webpack --config config/webpack_dev.js src/index.jsx"
+    "start": "node ./server"
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",

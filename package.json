@@ -7,7 +7,9 @@
   "author": "jianglikui <jianglikui@mocaapp.cn>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./server"
+    "start": "node ./scripts start",
+    "build": "node ./scripts build",
+    "lint": ""
   },
   "devDependencies": {
     "@babel/core": "^7.6.4",
@@ -29,6 +31,7 @@
     "webpack-dev-server": "^3.8.2"
   },
   "dependencies": {
+    "keypress": "^0.2.1",
     "mobx": "^5.14.0",
     "mobx-react": "^6.1.4",
     "react": "^16.10.2",

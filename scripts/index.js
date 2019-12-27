@@ -1,66 +1,21 @@
 const chalk = require('chalk')
 const portfinder = require('portfinder')
-const path = require('path')
 const WebpackDevServer = require('webpack-dev-server')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-var webpack = require('webpack')
+const webpack = require('webpack')
+const webpackConfig = require('../config/webpack')
 
-portfinder.basePort = 3000
+portfinder.basePort = webpackConfig.devServer.port
 
-let env = process.argv.filter(arg => ['dev', 'prod'].includes(arg))[0] || 'dev'
+const argvHas = name => process.argv.filter(arg => arg === name).length !== 0
+
+webpackConfig.mode = argvHas('prod') ? 'production' : 'development'
+
+const isBuild = argvHas('build')
 
 async function main() {
   const port = await portfinder.getPortPromise()
-  const compiler = webpack({
-    entry: './app/index.jsx',
-    output: {
-      filename: 'bundle.js',
-      path: path.resolve(__dirname, 'dist'),
-    },
-    plugins: [
-      new HtmlWebpackPlugin({
-        template: 'public/index.html',
-        inject: 'body',
-      }),
-    ],
-    module: {
-      rules: [
-        {
-          test: /\.less$/,
-          use: [
-            'style-loader',
-            {
-              loader: 'css-loader',
-              options: { importLoaders: 1, modules: true },
-            },
-            'less-loader',
-          ],
-        },
-        {
-          test: /\.js(x)$/,
-          exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader',
-          },
-        },
-        {
-          test: /\.(png|jpg|gif)$/,
-          use: [
-            {
-              loader: 'file-loader',
-              options: {},
-            },
-          ],
-        },
-      ],
-    },
-    resolve: {
-      extensions: ['.js', '.json', '.jsx'],
-    },
-  })
-
-  const server = new WebpackDevServer(compiler, { hot: true, contentBase: '/path/to/directory' })
-
+  const compiler = webpack(webpackConfig)
+  const server = new WebpackDevServer(compiler, webpackConfig.devServer)
   server.listen(port, 'localhost', () => {})
 }
 

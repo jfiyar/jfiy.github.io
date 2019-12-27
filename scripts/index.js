@@ -12,7 +12,7 @@ let env = process.argv.filter(arg => ['dev', 'prod'].includes(arg))[0] || 'dev'
 async function main() {
   const port = await portfinder.getPortPromise()
   const compiler = webpack({
-    entry: './src/index.jsx',
+    entry: './app/index.jsx',
     output: {
       filename: 'bundle.js',
       path: path.resolve(__dirname, 'dist'),

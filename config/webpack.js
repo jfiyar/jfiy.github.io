@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   entry: './src/index.jsx',
   output: {
-    filename: 'bundle.js',
+    filename: '[name]bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
@@ -13,7 +13,7 @@ module.exports = {
       inject: 'body',
     }),
   ],
-  devServer: { hot: true, contentBase: '/path/to/directory', port: 3000 },
+  devServer: { hot: true, port: 3000, quiet: true, contentBase: false },
 
   module: {
     rules: [

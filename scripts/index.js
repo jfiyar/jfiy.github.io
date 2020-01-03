@@ -21,12 +21,14 @@ async function main() {
       webpackConfig.devServer()
     }
     setTimeout(() => {
-      console.log('')
-      console.log(chalk.green(`------------------------`))
-      console.log(chalk.green(`: http://localhost:${port}`))
-      console.log(chalk.green(`: http://127.0.0.1:${port}`))
-      console.log(chalk.green(`: http://${address.ip()}:${port}`))
-      console.log(chalk.green(`------------------------`))
+      console.log(`${chalk.blue('\ni')}${chalk.blackBright('[scripts]')}server at:`)
+      console.log(
+        chalk.blue(`
+          http://localhost:${port}
+          http://127.0.0.1:${port}
+          http://${address.ip()}:${port}
+      `)
+      )
     })
   }
   const server = new WebpackDevServer(compiler, webpackConfig.devServer)

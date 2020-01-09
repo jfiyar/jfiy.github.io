@@ -7,7 +7,7 @@
   "author": "jianglikui <jianglikui@mocaapp.cn>",
   "license": "MIT",
   "scripts": {
-    "start": "node ./scripts start",
+    "serve": "node ./scripts serve",
     "build": "node ./scripts build",
     "lint": ""
   },

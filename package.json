@@ -32,6 +32,7 @@
   },
   "dependencies": {
     "address": "^1.1.2",
+    "axios": "^0.19.1",
     "keypress": "^0.2.1",
     "mobx": "^5.14.0",
     "mobx-react": "^6.1.4",

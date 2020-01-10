@@ -119,6 +119,11 @@ export class App extends Component {
           submit
         </button>
         <pre style={{ whiteSpace: 'pre-wrap', fontSize: 12 }}>{JSON.stringify(this.state.resp.data, null, 4)}</pre>
+        <footer style={{ textAlign: 'center', fontSize: 14, color: '#999999', marginTop: 40 }}>
+          <a target="_block" href="https://github.com/jfiyar">
+            github@jfiyar
+          </a>
+        </footer>
       </div>
     )
   }

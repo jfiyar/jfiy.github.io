@@ -1,12 +1,10 @@
 {
+  "private": true,
   "scripts": {
-    "dev": "webpack-dev-server --devtool eval --progress --colors",
-    "deploy": " NODE_ENV=production webpack -p"
+    "build": "webpack --config config/webpack.js --mode development"
   },
-  "dependencies": {},
   "devDependencies": {
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-cli": "^3.3.10"
   }
 }

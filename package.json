@@ -1,45 +1,12 @@
 {
-  "name": "web-elf",
-  "version": "1.0.0",
-  "description": "小精灵 web端",
-  "main": "index.js",
-  "repository": "https://gitee.com/zvi/web-elf.git",
-  "author": "jianglikui <jianglikui@mocaapp.cn>",
-  "license": "MIT",
   "scripts": {
-    "serve": "node ./scripts serve",
-    "build": "node ./scripts build",
-    "lint": ""
+    "dev": "webpack-dev-server --devtool eval --progress --colors",
+    "deploy": " NODE_ENV=production webpack -p"
   },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-class-properties": "^7.5.5",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-react": "^7.6.3",
-    "babel-loader": "^8.0.6",
-    "chalk": "^3.0.0",
-    "clean-webpack-plugin": "^3.0.0",
-    "css-loader": "^3.2.0",
-    "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
-    "less": "^3.10.3",
-    "less-loader": "^5.0.0",
-    "portfinder": "^1.0.25",
-    "style-loader": "^1.0.0",
-    "webpack": "^4.41.4",
-    "webpack-cli": "^3.3.9",
-    "webpack-dev-server": "^3.8.2"
-  },
-  "dependencies": {
-    "address": "^1.1.2",
-    "axios": "^0.19.1",
-    "keypress": "^0.2.1",
-    "mobx": "^5.14.0",
-    "mobx-react": "^6.1.4",
-    "react": "^16.10.2",
-    "react-dom": "^16.10.2",
-    "react-router-dom": "^5.1.2",
-    "styled-components": "^4.4.0",
-    "styled-icons": "^8.6.0"
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   }
 }

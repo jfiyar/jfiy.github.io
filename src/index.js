@@ -1,7 +1,13 @@
+import ReactDOM from "react-dom";
+import React from "react";
+
 if (module.hot) {
   module.hot.accept();
 }
 
-console.log("---");
+const root = document.createElement("DIV");
+document.body.appendChild(root);
 
-document.body.innerHTML = "222";
+console.log(root);
+
+ReactDOM.render(root, <div>123</div>);

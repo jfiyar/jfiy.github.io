@@ -1,6 +1,6 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+// const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const path = require("path");
 
 module.exports = () => {
@@ -11,6 +11,7 @@ module.exports = () => {
       quiet: true,
       open: true
     },
+    entry: "./src/index.tsx",
     output: {
       filename: "[hash:8].js",
       path: path.resolve(__dirname, "../dist")
@@ -19,9 +20,12 @@ module.exports = () => {
       // 自动生成入口的index.html,并引入打包的js
       new HtmlWebpackPlugin(),
       // 自动清除打包的目录
-      new CleanWebpackPlugin(),
-      new UglifyJsPlugin()
+      new CleanWebpackPlugin()
+      // new UglifyJsPlugin()
     ],
+    resolve: {
+      extensions: [".tsx", ".ts", ".js"]
+    },
     module: {
       rules: [
         {
@@ -33,6 +37,11 @@ module.exports = () => {
               presets: ["@babel/preset-env", "@babel/preset-react"]
             }
           }
+        },
+        {
+          test: /\.tsx?$/,
+          use: "ts-loader",
+          exclude: /node_modules/
         }
       ]
     }

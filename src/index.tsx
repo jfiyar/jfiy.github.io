@@ -1,10 +1,9 @@
-import ReactDOM from "react-dom";
-import React from "react";
+import * as React from "react";
+import * as ReactDOM from "react-dom";
 import App from "./App";
 
-//接收热更新
-if (module.hot) {
-  module.hot.accept();
+if ((module as any).hot) {
+  (module as any).hot.accept();
 }
 
 let root = document.querySelector("#root");

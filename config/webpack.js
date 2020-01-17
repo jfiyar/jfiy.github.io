@@ -1,17 +1,11 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
-const path = require("path");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const path = require("path");
 
 module.exports = () => {
   return {
-    plugins: [
-      // 自动生成入口的index.html,并引入打包的js
-      new HtmlWebpackPlugin(),
-      // 自动清除打包的目录
-      new CleanWebpackPlugin(),
-      new UglifyJsPlugin()
-    ],
+    mode: "development",
     devServer: {
       hot: true,
       quiet: true,
@@ -20,6 +14,27 @@ module.exports = () => {
     output: {
       filename: "[hash:8].js",
       path: path.resolve(__dirname, "../dist")
+    },
+    plugins: [
+      // 自动生成入口的index.html,并引入打包的js
+      new HtmlWebpackPlugin(),
+      // 自动清除打包的目录
+      new CleanWebpackPlugin(),
+      new UglifyJsPlugin()
+    ],
+    module: {
+      rules: [
+        {
+          test: /\.js$/,
+          exclude: /(node_modules|bower_components)/,
+          use: {
+            loader: "babel-loader",
+            options: {
+              presets: ["@babel/preset-env", "@babel/preset-react"]
+            }
+          }
+        }
+      ]
     }
   };
 };

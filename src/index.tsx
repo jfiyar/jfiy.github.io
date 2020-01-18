@@ -15,4 +15,4 @@ if (!root) {
   document.body.append(root);
 }
 
-ReactDOM.render(<App />, root);
+ReactDOM.render(<App name="thymes" />, root);
